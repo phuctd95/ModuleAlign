@@ -45,7 +45,7 @@ void  get_gene_root_number(string tree, int& geneNum, int& rootNum) {
 }
 
 void  make_cluster_members(string tree, string gene_mapping, int geneNum, int rootNum, int* cluster_size, string* cluster_children, string* cluster_member) //cluster_size shows the members of each clusters
-{
+{	
     int* lnodes;int* rnodes;
 		string line,term2,term3,temp;
     int term1;
@@ -69,7 +69,7 @@ void  make_cluster_members(string tree, string gene_mapping, int geneNum, int ro
         }
     }
     input.close();
-
+	cerr << "DONE\n";
 		// ------------------------------
     input.open(tree.c_str());
 		
@@ -79,7 +79,7 @@ void  make_cluster_members(string tree, string gene_mapping, int geneNum, int ro
         cluster_children[i]=ss.str();
 				cluster_member[i]=geneMap.find(i)->second;
     }
-
+	cerr << "DONE\n";
     for (int i=1; i<=geneNum; i++) 
         cluster_size[i]=1;
 
@@ -87,7 +87,7 @@ void  make_cluster_members(string tree, string gene_mapping, int geneNum, int ro
     rnodes=new int[rootNum+1];
 
 		// ------------------------------
-
+	cerr << "DONE\n";
     input.seekg(0,ios_base::beg);
 		getline(input, line);		
     while (!input.eof()) {
@@ -111,7 +111,7 @@ void  make_cluster_members(string tree, string gene_mapping, int geneNum, int ro
 //////////////////////////////////////////////////////////////////////
 
 int main(int argc, const char * argv[])
-{      
+{      	
     string line,outstring;
     int term1,row,col, geneNum1, geneNum2, rootNum1, rootNum2;
     string term2,term4,term5;
@@ -155,7 +155,7 @@ int main(int argc, const char * argv[])
     
 		// ------------------------------ 
 		// make the blast matrix
-    
+    cerr << "DONE";
     double** blast = new double*[geneNum1+1];
     
     for (int c=1; c<=geneNum1; c++) {
@@ -180,7 +180,7 @@ int main(int argc, const char * argv[])
         getline(input, line); 
     }
     input.close();
-
+	cerr << "DONE";
     // ------------------------------ 
     double** score = new double*[rootNum1+1];
     int** visit = new int*[rootNum1+1]; 
@@ -220,7 +220,7 @@ int main(int argc, const char * argv[])
 						visit[c1][c2]=1;
 				}
     }
-
+	cerr << "DONE";
     // ------------------------------  
     for (int i=1; i<rootNum1; i++) {
         for (int j=1; j<rootNum2; j++) {
@@ -234,7 +234,8 @@ int main(int argc, const char * argv[])
                     while (getline(Stream2,term4, ','))
                         sum = sum + sumArray[atoi(term2.c_str())][atoi(term4.c_str())];
                 }
-								score[i][j]=sum/(C1_size[i]*C2_size[j]);
+								if (C1_size[i]*C2_size[j] != 0) score[i][j]=sum/(C1_size[i]*C2_size[j]);
+								else score[i][j] = 0;
 								sumArray[i][j]=sum;
             		visit[i][j]=1;
 						}
