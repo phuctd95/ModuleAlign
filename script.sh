@@ -32,9 +32,3 @@ awk 'NR==FNR{a[$2]=$1;next}($2 in a){print $1"\t"a[$2]"\t"$3}' Node/$2.node temp
 rm temp-1
 
 #Step 4
-g++ makeScore.cpp 
-./a.out $1 $2 blastNum simFile
-
-#run the main code
-g++ Network.cpp Alignment.cpp ModuleAlign.cpp
-./a.out $1  $2  simFile  -a $3
