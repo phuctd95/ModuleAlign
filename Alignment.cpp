@@ -382,7 +382,7 @@ void Alignment::init_labels(double aa,double kk)
         
         // ------------------------------
         //hubalign score
-        
+        cout << "DONE\n";
         float *nodeScore1 = new float[network1.size]; //scores of nodes of smaller network
         float *nodeScore2 = new float[network2.size]; //scores of nodes of bigger network
 
@@ -390,7 +390,7 @@ void Alignment::init_labels(double aa,double kk)
             nodeScore1[c1]=(1-lambda)*network1.nodeWeight[c1];
         for(int c1=0; c1< network2.size; c1++)
             nodeScore2[c1]=(1-lambda)*network2.nodeWeight[c1];
-        
+        cout << "DONE\n";
         //find max score 
         //finding the nodescore
         for (int c1=0; c1<network1.size; c1++){
@@ -401,7 +401,7 @@ void Alignment::init_labels(double aa,double kk)
             for (int c2=0; c2<network2.size; c2++)
                 nodeScore2[c1] += lambda*network2.edgeWeight[c1][c2];
         } 
-        
+        cout << "DONE\n";
         //======first network
         float max = -10000;
         for (int c1=0; c1<network1.size; c1++) {
@@ -429,9 +429,9 @@ void Alignment::init_labels(double aa,double kk)
                     min = nodeScore1[i];
                 similarity_hung[i][j] = min;//just the topology
             }
-        
+        cout << "DONE\n";
         hungarian(aa,kk);
-
+		cout << "DONE\n";
         int bestAligned,tempNode,candid;
         float ret = 0;
         
@@ -458,7 +458,7 @@ void Alignment::init_labels(double aa,double kk)
             }
         
         }
-
+		
         string alignFile = name;
         //insert a definite suffix for the alignment file
         alignFile.append(".alignment");
