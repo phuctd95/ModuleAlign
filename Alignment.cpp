@@ -436,7 +436,7 @@ void Alignment::init_labels(double aa,double kk)
         float ret = 0;
         
         for (int k = 0; k < network1.size; k++) {
-            
+            cout << k << endl;
             bestAligned=findBestAligned();
             tempNode = xy[bestAligned];
             best[k] = bestAligned; //to save then for next step
