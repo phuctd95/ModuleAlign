@@ -2,7 +2,7 @@
 
 using namespace std;
 
-string s[4] = {"celeg","dmela","hsapi","scere"};
+string s[4] = {"celeg","scere","dmela","hsapi"};
 
 int main()
 {
