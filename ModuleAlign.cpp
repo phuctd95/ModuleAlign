@@ -60,19 +60,18 @@ int main(int argc, char *argv[])
 
             Network network1(name1);
             Network network2(name2);
-            
+            cout << "DONE\n";
             network1.makeSkeleton(degree);
             network2.makeSkeleton(degree);
-
+			cout << "DONE\n";
             //Initializes the alignment class
             Alignment alignment( network1, network2 );
             string khar = moduleFile;
-            alignment.readAlignedCluster(khar);
-            
+            alignment.readAlignedCluster(khar);            
             strm.str("");strm.clear();
             strm  << name1 << "-" << name2 <<".blast";
             alignment.setSimilarities(strm.str());
-
+			cout << "DONE\n";
             //making the name for output file
             strm.str("");strm.clear();
             strm  << name1 << "-" << name2 <<"-a" << alpha;
