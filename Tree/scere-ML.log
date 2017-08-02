@@ -1,0 +1,16 @@
+=====================================
+Hierarchical Agglomerative Clustering
+(c) Yongjin Park, Joel S. Bader 
+    {ypark28, joel.bader}@jhu.edu
+=====================================
+Exp-name:	./Tree/scere
+  Method:	ML
+
+TIME
+   Start:	07/24/17  06:36:11
+     End:	07/24/17  06:47:34
+ Elapsed:	683 secs
+
+network data files:
+./Pairs/scere.pairs
+
