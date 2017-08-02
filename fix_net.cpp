@@ -8,7 +8,8 @@ vector <int> n2;
 vector <bool> check;
 int main()
 {
-    freopen("dmela.net","r",stdin);
+	cin >> in_file;
+    freopen((in_file+".net").c_str(),"r",stdin);
     int u,v;
     while (cin >> u >> v)
     {
@@ -20,7 +21,7 @@ int main()
         check[v] = false;
     }
     cerr << check.size()<< endl;
-    freopen("dmela.net","w",stdout);
+    freopen((in_file+".net").c_str(),"w",stdout);
     for (int i = 0; i < n1.size(); ++i)
         cout << n1[i] << "\t" << n2[i] << endl;
     for (int i = 0; i < check.size(); ++i)
