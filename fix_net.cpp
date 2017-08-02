@@ -22,11 +22,11 @@ int main()
     cerr << check.size()<< endl;
     freopen("dmela.net","w",stdout);
     for (int i = 0; i < n1.size(); ++i)
-        cout << n1[i] << " " << n2[i] << endl;
+        cout << n1[i] << "\t" << n2[i] << endl;
     for (int i = 0; i < check.size(); ++i)
         if (check[i])
         {
-            cout << i << " " << i-1 << endl;
+            cout << i << "\t" << i-1 << endl;
             cerr << i << endl;
         }
     return 0;
